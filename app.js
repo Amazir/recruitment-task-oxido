@@ -63,6 +63,9 @@ async function saveToFile(outputPath, content) {
         console.log('Processing article with OpenAI...');
         const htmlContent = await processArticleWithOpenAI(articleContent);
 
+        console.log('Generating raw article file...');
+        await saveToFile('./output/article.html', htmlContent);
+
         console.log('Generating full preview...');
         const fullPreview = await generateFullPreview('./szablon.html', htmlContent);
 
